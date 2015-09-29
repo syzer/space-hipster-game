@@ -20,7 +20,7 @@ function Game(game) {
         game.background = game.add.tileSprite(0, 0, game.world.width, game.world.height, 'space');
 
         // create player
-        // TODO checked for the asteroids
+        // TODO player checked for the asteroids
         game.player = game.add.sprite(game.world.centerX, game.world.centerY, 'playership');
         game.player.scale.setTo(2);
         game.player.animations.add('fly', [0, 1, 2, 3], 5, true);
@@ -61,6 +61,10 @@ function Game(game) {
 
         // overlapping between player and collectables
         game.physics.arcade.overlap(game.player, game.collectables, collect, null, game);
+
+        if (game.isAwesome(game.playerScore)) {
+            game.state.start('MainMenu', true, false, game.playerScore);
+        }
     }
 
     function generateCollectables() {
@@ -146,7 +150,7 @@ function Game(game) {
         game.scoreLabel.fixedToCamera = true;
     }
 
-};
+}
 
 /*
  TODO
