@@ -96,11 +96,11 @@ SpaceHipster.Game = function mainGame(game) {
         var asteriod;
 
         for (var i = 0; i < numAsteroids; i++) {
-            //add sprite
+            // add sprite
             asteriod = game.asteroids.create(game.world.randomX, game.world.randomY, 'rock');
             asteriod.scale.setTo(game.rnd.integerInRange(10, 40) / 10);
 
-            //physics properties
+            // physics properties
             asteriod.body.velocity.x = game.rnd.integerInRange(-20, 20);
             asteriod.body.velocity.y = game.rnd.integerInRange(-20, 20);
             asteriod.body.immovable = true;
