@@ -1,39 +1,47 @@
 var SpaceHipster = SpaceHipster || {};
 
-//title screen
-SpaceHipster.MainMenu = function () {
-};
+// title screen
+SpaceHipster.MainMenu = function mainMenu(game) {
+    'use strict';
 
-SpaceHipster.MainMenu.prototype = {
-    init: function (score) {
-        var score = score || 0;
-        this.highestScore = this.highestScore || 0;
+    return {
+        init: init,
+        create: create,
+        update: update
+    };
 
-        this.highestScore = Math.max(score, this.highestScore);
-    },
-    create: function () {
-        //show the space tile, repeated
-        this.background = this.game.add.tileSprite(0, 0, this.game.width, this.game.height, 'space');
+    function init(score) {
+        score = score || 0;
+        game.highestScore = game.highestScore || 0;
+        game.highestScore = Math.max(score, game.highestScore);
+    }
 
-        //give it speed in x
-        this.background.autoScroll(-20, 0);
+    function create() {
 
-        //start game text
+        // show the space tile, repeated
+        game.background = game.add.tileSprite(0, 0, game.width, game.height, 'space');
+
+        // give it speed in x
+        game.background.autoScroll(-20, 0);
+
+        // start game text
         var text = "Tap to begin";
-        var style = {font: "30px Arial", fill: "#fff", align: "center"};
-        var t = this.game.add.text(this.game.width / 2, this.game.height / 2, text, style);
+        var style = {font: "30pt Arial", fill: "#fff", align: "center"};
+        var t = game.add.text(game.width / 2, game.height / 2, text, style);
         t.anchor.set(0.5);
 
-        //highest score
-        text = "Highest score: " + this.highestScore;
-        style = {font: "15px Arial", fill: "#fff", align: "center"};
+        // highest score
+        text = "Highest score: " + game.highestScore;
+        style = {font: "15pt Arial", fill: "#fff", align: "center"};
 
-        var h = this.game.add.text(this.game.width / 2, this.game.height / 2 + 50, text, style);
+        var h = game.add.text(game.width / 2, game.height / 2 + 50, text, style);
         h.anchor.set(0.5);
-    },
-    update: function () {
-        if (this.game.input.activePointer.justPressed()) {
-            this.game.state.start('Game');
+    }
+
+    function update() {
+        if (game.input.activePointer.justPressed()) {
+            game.state.start('Game');
         }
     }
+
 };

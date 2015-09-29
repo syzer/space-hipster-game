@@ -30,9 +30,9 @@ SpaceHipster.Preload = function (game) {
     }
 
     function create() {
-        //setTimeout(function () {
+        setTimeout(function () {
             game.state.start('MainMenu');
-        //}, 5000);
+        }, 1000);
     }
 
 };
