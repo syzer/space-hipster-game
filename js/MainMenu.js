@@ -56,7 +56,7 @@ function MainMenu(game) {
         var scoreText = game.add.text(game.width / 2, game.height / 2 - 60, text, pStyle);
         scoreText.anchor.set(0.5);
 
-        var awesomeText = game.add.text(game.width / 2, game.height / 2 + 45, text2, h1Style);
+        var awesomeText = game.add.text(game.width / 2, game.height / 2 + 65, text2, h1Style);
         awesomeText.anchor.set(0.5);
     }
 

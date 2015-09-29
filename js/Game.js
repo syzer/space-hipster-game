@@ -20,7 +20,6 @@ function Game(game) {
         game.background = game.add.tileSprite(0, 0, game.world.width, game.world.height, 'space');
 
         // create player
-        // TODO player checked for the asteroids
         game.player = game.add.sprite(game.world.centerX, game.world.centerY, 'playership');
         game.player.scale.setTo(2);
         game.player.animations.add('fly', [0, 1, 2, 3], 5, true);
@@ -51,7 +50,6 @@ function Game(game) {
 
     function update() {
         if (game.input.activePointer.justPressed()) {
-
             // move on the direction of the input
             game.physics.arcade.moveToPointer(game.player, game.playerSpeed);
         }
@@ -94,8 +92,10 @@ function Game(game) {
 
         for (var i = 0; i < numAsteroids; i++) {
             // add sprite
-            asteriod = game.asteroids.create(game.world.randomX, game.world.randomY, 'rock');
-            asteriod.scale.setTo(game.rnd.integerInRange(10, 40) / 10);
+            asteriod = game.asteroids.create(randX(), randY(), 'rock', game.rnd.integerInRange(0, 4));
+            asteriod.name = 'aster' + i.toString();
+            //asteriod.frame = game.rnd.integerInRange(0, asteriod.animations.frameTotal - 1);
+            //asteriod.scale.setTo(game.rnd.integerInRange(10, 40) / 10);
 
             // physics properties
             asteriod.body.velocity.x = game.rnd.integerInRange(-20, 20);
@@ -103,6 +103,16 @@ function Game(game) {
             asteriod.body.immovable = true;
             asteriod.body.collideWorldBounds = true;
         }
+    }
+
+    function randX() {
+        var x = game.world.randomX;
+        return Math.abs(x - game.world.centerX) > 50 ? x : game.world.randomX;
+    }
+
+    function randY() {
+        var y = game.world.randomY;
+        return Math.abs(y - game.world.centerY) > 50 ? y : game.world.randomY;
     }
 
     function hitAsteroid(player, asteroid) {
@@ -147,9 +157,3 @@ function Game(game) {
     }
 
 }
-
-/*
- TODO
- - audio
- - asteriod bounch
- */

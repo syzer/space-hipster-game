@@ -19,7 +19,7 @@ function Preload (game) {
 
         //load game assets
         game.load.image('space', 'assets/images/space.png');
-        game.load.image('rock', 'assets/images/rock.png');
+        game.load.spritesheet('rock', 'assets/images/rocks.png', 40, 40, 4);
         game.load.spritesheet('playership', 'assets/images/player.png', 12, 12);
         game.load.spritesheet('power', 'assets/images/power.png', 12, 12);
         game.load.image('playerParticle', 'assets/images/player-particle.png');
@@ -33,4 +33,4 @@ function Preload (game) {
         }, 1000);
     }
 
-};
+}
