@@ -22,6 +22,7 @@ SpaceHipster.Game = function mainGame(game) {
         game.background = game.add.tileSprite(0, 0, game.world.width, game.world.height, 'space');
 
         // create player
+        // TODO checked for the asteroids
         game.player = game.add.sprite(game.world.centerX, game.world.centerY, 'playership');
         game.player.scale.setTo(2);
         game.player.animations.add('fly', [0, 1, 2, 3], 5, true);
