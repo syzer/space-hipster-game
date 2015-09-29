@@ -1,7 +1,5 @@
-var SpaceHipster = SpaceHipster || {};
-
 // title screen
-SpaceHipster.MainMenu = function mainMenu(game) {
+function MainMenu(game) {
     'use strict';
 
     return {

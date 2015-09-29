@@ -1,7 +1,5 @@
-var SpaceHipster = SpaceHipster || {};
-
-//title screen
-SpaceHipster.Game = function mainGame(game) {
+// title screen
+function Game(game) {
     'use strict';
 
     return {
@@ -82,7 +80,6 @@ SpaceHipster.Game = function mainGame(game) {
             collectable.animations.add('fly', [0, 1, 2, 3], 5, true);
             collectable.animations.play('fly');
         }
-
     }
 
     function generateAsteriods() {

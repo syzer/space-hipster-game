@@ -1,7 +1,5 @@
-var SpaceHipster = SpaceHipster || {};
-
-//loading the game assets
-SpaceHipster.Preload = function (game) {
+// loading the game assets
+function Preload (game) {
     'use strict';
 
     return {

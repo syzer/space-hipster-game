@@ -1,7 +1,5 @@
-var SpaceHipster = SpaceHipster || {};
-
-//setting game configuration and loading the assets for the loading screen
-SpaceHipster.Boot = function (game) {
+// setting game configuration and loading the assets for the loading screen
+function Boot(game) {
     'use strict';
 
     return {
