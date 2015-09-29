@@ -61,10 +61,6 @@ function Game(game) {
 
         // overlapping between player and collectables
         game.physics.arcade.overlap(game.player, game.collectables, collect, null, game);
-
-        if (game.isAwesome(game.playerScore)) {
-            game.state.start('MainMenu', true, false, game.playerScore);
-        }
     }
 
     function generateCollectables() {
